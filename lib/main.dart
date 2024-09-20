@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:generic_pagination/features/product/view/product_view.dart';
+import 'package:generic_pagination/features/product/viewmodel/product_viewmodel.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +18,10 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Container(),
+      home: ChangeNotifierProvider(
+        create: (_) => ProductViewModel(),
+        child: const ProductView(),
+      ),
     );
   }
 }
